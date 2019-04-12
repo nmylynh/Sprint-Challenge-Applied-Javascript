@@ -23,7 +23,7 @@ class TabLink {
     // }
     // /* <- Delete this comment block when you work on the if statement
 
-    if(this.tabData == all) {
+    if(this.tabData == "all") {
       this.cards = document.querySelectorAll(".card");
     } else {
       this.cards = document.querySelectorAll(`.card[data-tab='${this.tabData}']`);
@@ -34,12 +34,17 @@ class TabLink {
      //map returns whatever that is true into a new array
 
     this.cards = Array.from(this.cards).map(function(cardElement){
-        return new TabCard(card)
+        return new TabCard(cardElement)
     });
 
     // Add a click event that invokes this.selectTab
-    this.tabElement.addEventListener("click", function(){
-        return this.selectTab()
+    // this.tabElement.addEventListener("click", function(){
+    //     return this.selectTab();
+    // });
+
+    this.tabElement.addEventListener('click', () => {
+      // Call the select method you define below
+      this.selectTab();
     });
   }
 
@@ -85,9 +90,15 @@ class TabCard {
 
 - Select all classes named ".tab" and assign that value to the tabs variable
 
+
 - With your selection in place, now chain a .forEach() method onto the tabs variable to iterate over the DOM NodeList
 
-- In your .forEach() method's callback function, return a new instance of TabLink and pass in each tab as a parameter
+- In your .forEach() method's callback function, return a new instance of TabLink and pass in each tab as a parameter */
 
 
-let tabs = document.querySelectorAll();
+var tabs = document.querySelectorAll(".tab");
+
+tabs.forEach(function(tabElement){
+  return new TabLink(tabElement);
+})
+
