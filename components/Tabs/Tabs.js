@@ -38,10 +38,10 @@ class TabLink {
     });
 
     // Add a click event that invokes this.selectTab
-    // this.tabElement.addEventListener("click", function(){
-    //     return this.selectTab();
-    // });
-
+//     this.tabElement.addEventListener("click", function(){
+//         return this.selectTab();
+//     });
+// }
     this.tabElement.addEventListener('click', () => {
       // Call the select method you define below
       this.selectTab();
